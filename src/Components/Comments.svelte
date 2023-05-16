@@ -1,8 +1,8 @@
 <script>
   export let comments = []
 
-  const addComment = ({target : {text}}) => {
-    const msg = text.value
+  const addComment = (event) => {
+    const msg = event.target.text.value
     if (msg.length < 3) return console.log('el mensaje debe ser mayor a 3 caracaters');
     const message = {
       id: Date.now(),
