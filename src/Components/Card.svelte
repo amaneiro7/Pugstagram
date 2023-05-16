@@ -1,5 +1,8 @@
 <script>
   import Comments from "./Comments.svelte";
+  import Modal from "./Modal.svelte";
+  import Share from "./Share.svelte";
+  
   export let username
   export let location
   export let avatar
@@ -9,9 +12,17 @@
   export let postComment
   export let comments
 
+  let isModal = false
+  const habdleClick = () => isModal = !isModal
+
 </script>
 
  <section class="Card">
+
+  {#if isModal}
+     <!-- content here -->
+  {/if}
+
     <div class="Card-container">
         <div class="Card-header">
             <div class="Card-user">
@@ -31,7 +42,7 @@
         <div class="Card-icons">
             <div class="Card-icons-first">
                 <i class="fas fa-heart"/>
-                <i class="fas fa-paper-plane"/>
+                <i class="fas fa-paper-plane" on:click={habdleClick}/>
             </div>
             <div class="Card-icons-second">
                 <i class="fas fa-bookmark"/>                
