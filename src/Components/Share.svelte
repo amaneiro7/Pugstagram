@@ -1,6 +1,23 @@
-<script>
-
-</script>
+<div class="Share">
+  <div class="Share-head">
+    <h2>Compartir</h2>
+    <i class="fas fa-times-circle" on:click />
+  </div>
+  <div class="Share-content">
+    <div class="Share-facebook">
+      <a href="https://www.facebook.com/sharer/sharer.php?&u=https://pugstagram.co/" target="_blank">
+        <i class="fab fa-facebook-square" />
+        Compartir en Facebook!
+      </a>
+    </div>
+    <div class="Share-whatsapp">
+      <a href="https://api.whatsapp.com/send?&text=mira%20este%20hermoso%20pug%20https://pugstagram.co/" target="_blank">
+        <i class="fab fa-whatsapp-square" />
+        Compartir en Whatsapp!
+      </a>
+    </div>
+  </div>
+</div>
 
 <style>
   .Share {
@@ -9,7 +26,7 @@
     background-color: white;
     margin: 0 0 2em 0;
     width: 300px;
-    height: 80px;
+    height: auto;
     position: absolute;
     top: 300px;
     left: 30%;
@@ -47,24 +64,3 @@
     color: #1bd741;
   }
 </style>
-
-<div class="Share">
-  <div class="Share-head">
-    <h2>Compartir</h2>
-    <i class="fas fa-times-circle" />
-  </div>
-  <div class="Share-content">
-      <div class="Share-facebook">
-          <a href="https://www.facebook.com/sharer/sharer.php?&u=https://pugstagram.co/" target="_blank">
-          <i class="fab fa-facebook-square" />
-          Compartir en Facebook!
-      </a>
-      </div>
-      <div class="Share-whatsapp">
-          <a href="https://api.whatsapp.com/send?&text=mira%20este%20hermoso%20pug%20https://pugstagram.co/" target="_blank">
-          <i class="fab fa-whatsapp-square" />
-          Compartir en Whatsapp!
-      </a>          
-      </div>
-  </div>
-</div>

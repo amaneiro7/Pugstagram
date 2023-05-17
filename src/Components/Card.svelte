@@ -2,25 +2,35 @@
   import Comments from "./Comments.svelte";
   import Modal from "./Modal.svelte";
   import Share from "./Share.svelte";
-  
+  import { blur } from 'svelte/transition'
+  import { likeCount } from "../store/store";
+    
   export let username
   export let location
   export let avatar
   export let photo
-  export let like
-  export let bookmark
   export let postComment
   export let comments
-
+  
+  export let like
+  export let bookmark
   let isModal = false
-  const habdleClick = () => isModal = !isModal
 
+  const handleClick = () => isModal = !isModal
+  const handleLike = () => {
+      like = !like
+      likeCount.update(n => like ? n + 1 : n - 1)      
+    }
 </script>
 
  <section class="Card">
 
   {#if isModal}
-     <!-- content here -->
+     <div transition:blur>
+      <Modal>
+        <Share on:click={handleClick}/>
+      </Modal>
+     </div>
   {/if}
 
     <div class="Card-container">
@@ -36,16 +46,25 @@
               <i class="fas fa-ellipsis"/>
           </div>        
         </div>
-        <figure class="Card-photo">
+        <figure 
+          class="Card-photo"
+          on:dblclick={handleLike}
+        >
             <img src={photo} alt="">
         </figure>
         <div class="Card-icons">
             <div class="Card-icons-first">
-                <i class="fas fa-heart"/>
-                <i class="fas fa-paper-plane" on:click={habdleClick}/>
+                <i class="fas fa-heart"                  
+                  on:click={handleLike}
+                  class:active-like={like}
+                />
+                <i class="fas fa-paper-plane" on:click={handleClick}/>
             </div>
             <div class="Card-icons-second">
-                <i class="fas fa-bookmark"/>                
+                <i class="fas fa-bookmark"
+                on:click={() => bookmark = !bookmark}
+                class:active-bookmark={bookmark}
+                />                
             </div>
         </div>
         <div class="Card-description">
